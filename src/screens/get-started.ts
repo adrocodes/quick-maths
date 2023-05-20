@@ -27,6 +27,19 @@ const tableToNumber: Record<typeof tables[number], number> = {
   twelve: 12,
 }
 
+const calculateAnswer = (num1: number, num2: number, op: Operation) => {
+  switch (op) {
+    case "+":
+      return num1 + num2
+    case "-":
+      return num1 - num2
+    case "*":
+      return num1 * num2
+    case "/":
+      return num1 / num2
+  }
+}
+
 export function getStarted(onSubmit: OnSubmit) {
   const form = document.getElementById("get-started") as HTMLFormElement
 
@@ -64,7 +77,7 @@ export function getStarted(onSubmit: OnSubmit) {
       const op = operationChoices[Math.floor(Math.random() * operationChoices.length)]
       const table = tableChoices[Math.floor(Math.random() * tableChoices.length)]
       const number = Math.floor(Math.random() * 12) + 1
-      const answer = eval(`${number} ${op} ${table}`)
+      const answer = calculateAnswer(number, table, op)
 
       questions.push([number, table, op, answer])
     }
