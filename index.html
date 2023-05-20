@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gradient-to-tl from-slate-900 to-slate-950 h-screen text-white">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="screen" data-idx="0">
+      <form id="get-started" class="flex flex-col items-center">
+        <div class="flex gap-12">
+          <fieldset>
+            <legend class="text-xl mb-4">Operations</legend>
+            <div class="flex flex-col gap-2">
+              <label class="flex items-center gap-2" for="addition">
+                <input type="checkbox" name="addition" id="addition" value="addition" />
+                Addition
+              </label>
+              <label class="flex items-center gap-2" for="subtraction">
+                <input type="checkbox" name="subtraction" id="subtraction" value="subtraction" />
+                Subtraction
+              </label>
+              <label class="flex items-center gap-2" for="multiplication">
+                <input type="checkbox" name="multiplication" id="multiplication" value="multiplication" />
+                Multiplication
+              </label>
+              <label class="flex items-center gap-2" for="division">
+                <input type="checkbox" name="division" id="division" value="division" />
+                Division
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="text-xl mb-4">Tables</legend>
+            <div class="flex gap-4">
+              <div class="flex flex-col gap-2">
+                <label class="flex items-center gap-2" for="one">
+                  <input type="checkbox" name="one" id="one" value="one" />
+                  One (1)
+                </label>
+                <label class="flex items-center gap-2" for="two">
+                  <input type="checkbox" name="two" id="two" value="two" />
+                  Two (2)
+                </label>
+                <label class="flex items-center gap-2" for="three">
+                  <input type="checkbox" name="three" id="three" value="three" />
+                  Three (3)
+                </label>
+                <label class="flex items-center gap-2" for="four">
+                  <input type="checkbox" name="four" id="four" value="four" />
+                  Four (4)
+                </label>
+                <label class="flex items-center gap-2" for="five">
+                  <input type="checkbox" name="five" id="five" value="five" />
+                  Five (5)
+                </label>
+                <label class="flex items-center gap-2" for="six">
+                  <input type="checkbox" name="six" id="six" value="six" />
+                  Six (6)
+                </label>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="flex items-center gap-2" for="seven">
+                  <input type="checkbox" name="seven" id="seven" value="seven" />
+                  Seven (7)
+                </label>
+                <label class="flex items-center gap-2" for="eight">
+                  <input type="checkbox" name="eight" id="eight" value="eight" />
+                  Eight (8)
+                </label>
+                <label class="flex items-center gap-2" for="nine">
+                  <input type="checkbox" name="nine" id="nine" value="nine" />
+                  Nine (9)
+                </label>
+                <label class="flex items-center gap-2" for="ten">
+                  <input type="checkbox" name="ten" id="ten" value="ten" />
+                  Ten (10)
+                </label>
+                <label class="flex items-center gap-2" for="eleven">
+                  <input type="checkbox" name="eleven" id="eleven" value="eleven" />
+                  Eleven (11)
+                </label>
+                <label class="flex items-center gap-2" for="twelve">
+                  <input type="checkbox" name="twelve" id="twelve" value="twelve" />
+                  Twelve (12)
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="mt-12">
+          <button type="submit" class="btn">Go go go!</button>
+        </div>
+      </form>
+    </div>
+    <div class="screen hidden" data-idx="1">
+      <p>Screen 1</p>
+      <button class="px-4 py-2 bg-rose-600 font-bold" data-idx="0">Go to screen 0</button>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
