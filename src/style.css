@@ -10,4 +10,12 @@
   .btn {
     @apply px-6 py-3 bg-rose-600 font-bold rounded-sm uppercase;
   }
+
+  #answer:focus {
+    box-shadow: none !important;
+  }
+
+  #timer-progress-inner {
+    transform: translateX(var(--progress, 0%));
+  }
 }

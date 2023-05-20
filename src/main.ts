@@ -1,7 +1,10 @@
 import './style.css'
 import screenManager from './screen-manager'
-import { getStarted } from './screens/get-started'
+import { getStartedScreen } from './screens/get-started'
+import { questionsScreen } from './screens/questions'
 
-getStarted((questions) => {
-  console.log(questions)
+getStartedScreen((questions) => {
+  let screen = questionsScreen()
+  screenManager.show('1')
+  screen.init(questions)
 })

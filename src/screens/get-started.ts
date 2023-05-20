@@ -1,8 +1,8 @@
+import type { Question, Operation } from "./types"
+
 const operations = ["addition", "subtraction", "multiplication", "division"] as const
 const tables = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"] as const
 
-type Operation = "+" | "-" | "*" | "/"
-type Question = [number, number, Operation, number]
 type OnSubmit = (questions: Question[]) => void
 
 const operationToSymbol: Record<typeof operations[number], Operation> = {
@@ -40,7 +40,7 @@ const calculateAnswer = (num1: number, num2: number, op: Operation) => {
   }
 }
 
-export function getStarted(onSubmit: OnSubmit) {
+export function getStartedScreen(onSubmit: OnSubmit) {
   const form = document.getElementById("get-started") as HTMLFormElement
 
   form.addEventListener("submit", (e) => {

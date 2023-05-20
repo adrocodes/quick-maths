@@ -98,8 +98,30 @@
       </form>
     </div>
     <div class="screen hidden" data-idx="1">
-      <p>Screen 1</p>
-      <button class="px-4 py-2 bg-rose-600 font-bold" data-idx="0">Go to screen 0</button>
+      <div class="fixed inset-x-0 top-10 h-5">
+        <div
+          class="w-[90%] mx-auto overflow-hidden h-full bg-gradient-to-r from-blue-600 via-orange-600 to-red-600 relative">
+          <div id="timer-progress-inner" style="width: 100%"
+            class="bg-slate-800 absolute h-full top-0 left-0 transition-transform">
+          </div>
+        </div>
+      </div>
+
+      <div class="text-9xl font-bold">
+        <span id="number" class="inline-flex pb-2 border-b-4 border-b-slate-800 w-40 justify-center">00</span>
+        <span id="operation">+</span>
+        <span id="table" class="inline-flex pb-2 border-b-4 border-b-slate-800 w-40 justify-center">00</span>
+      </div>
+      <span id="equals" class="text-6xl">=</span>
+      <form id="answer-form">
+        <label for="answer" aria-label="Answer">
+          <input type="text" name="answer" id="answer" autofocus
+            class="text-9xl w-[400px] text-center bg-transparent border-0 font-bold border-b-4 border-b-slate-800" />
+        </label>
+      </form>
+    </div>
+    <div class="screen hidden" data-idx="2">
+      <p>DONE!</p>
     </div>
   </div>
   <script type="module" src="/src/main.ts"></script>
