@@ -5,12 +5,18 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite + TS</title>
+  <title>Quick Maths</title>
 </head>
 
 <body>
   <div id="app">
     <div class="screen" data-idx="0">
+      <h1 class="text-6xl font-bold mb-4">Quick Maths</h1>
+      <p class="max-w-lg mx-auto mb-10 text-center">
+        Choose the operations and tables you want to practice, and then click the button to get started. Enter your
+        answer and hit either 'Enter' or 'Space' to submit. Once you click 'Go go go!', you'll have 90 seconds to
+        answer, the time starts immediately. This is best played on a desktop.
+      </p>
       <form id="get-started" class="flex flex-col items-center">
         <div class="flex gap-12">
           <fieldset>
@@ -122,7 +128,19 @@
       </form>
     </div>
     <div class="screen hidden" data-idx="2">
-      <p>DONE!</p>
+      <div class="text-9xl font-bold">
+        <span class="font-normal text-3xl italic text-right w-40 inline-block text-slate-500">Correct</span>
+        <span id="correct">00</span>
+      </div>
+      <div class="text-9xl font-bold">
+        <span class="font-normal text-3xl italic text-right w-40 inline-block text-slate-500">Attempted</span>
+        <span id="attempted">00</span>
+      </div>
+      <div class="text-9xl font-bold">
+        <span class="font-normal text-3xl italic text-right w-40 inline-block text-slate-500">Accuracy</span>
+        <span id="accuracy">00%</span>
+      </div>
+      <button id="restart" class="btn mt-10">Restart</button>
     </div>
   </div>
   <script type="module" src="/src/main.ts"></script>
