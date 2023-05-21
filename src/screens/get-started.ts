@@ -75,8 +75,20 @@ export function getStartedScreen(onSubmit: OnSubmit) {
 
     for (let i = 0; i < 500; i++) {
       const op = operationChoices[Math.floor(Math.random() * operationChoices.length)]
-      const table = tableChoices[Math.floor(Math.random() * tableChoices.length)]
-      const number = Math.floor(Math.random() * 12) + 1
+      let table = tableChoices[Math.floor(Math.random() * tableChoices.length)]
+      let number = Math.floor(Math.random() * 12) + 1
+
+      if (op === "/") {
+        number = number * table
+      }
+
+      if (op === '-') {
+        const max = Math.max(number, table)
+        const min = Math.min(number, table)
+        number = max
+        table = min
+      }
+
       const answer = calculateAnswer(number, table, op)
 
       questions.push([number, table, op, answer])
