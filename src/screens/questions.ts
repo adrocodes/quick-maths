@@ -1,7 +1,8 @@
 import screenManager from "../screen-manager";
+import summary from "./summary";
 import { Question } from "./types";
 
-export const questionsScreen = () => {
+export function questionsScreen() {
   const number = document.getElementById('number') as HTMLSpanElement;
   const operation = document.getElementById('operation') as HTMLSpanElement;
   const table = document.getElementById('table') as HTMLSpanElement;
@@ -17,6 +18,7 @@ export const questionsScreen = () => {
       let currentQuestionIndex = 0;
       let startTime = Date.now();
       let renderProgressTimeout: number;
+      let totalTimeout: number;
 
       const renderQuestion = () => {
         const question = questions[currentQuestionIndex % questions.length];
@@ -35,7 +37,7 @@ export const questionsScreen = () => {
         processInner.style.setProperty('--progress', `${Math.min(100 - percentage, 100)}%`)
       }
 
-      answerForm.addEventListener('submit', (e) => {
+      const onSubmit = (e: SubmitEvent) => {
         e.preventDefault();
         const questionAnswer = questions[currentQuestionIndex % questions.length][3];
         const actualAnswer = Number(answer.value);
@@ -43,29 +45,32 @@ export const questionsScreen = () => {
         currentQuestionIndex++;
 
         renderQuestion();
-      });
-
+      }
+      
       const onSpacePressed = (e: KeyboardEvent) => {
         if (e.key === " ") {
           e.preventDefault()
           answerForm.requestSubmit()
         }
       }
-
+      
+      answerForm.addEventListener('submit', onSubmit);
       answer.addEventListener("keydown", onSpacePressed)
 
       renderQuestion();
       renderProgressTimeout = setInterval(renderProgress, 100);
 
-      setTimeout(() => {
+      totalTimeout = setTimeout(() => {
         clearInterval(renderProgressTimeout);
         answer.removeEventListener("keydown", onSpacePressed)
-
-        console.log(answers);
-
-        console.log("Total", answers.length)
-        console.log("Correct", answers.filter(a => a[1]).length)
+        answerForm.removeEventListener('submit', onSubmit);
+        answerForm.reset()
+        processInner.style.setProperty('--progress', `0%`)
+        
+        summary.setAnswers(answers)
+        summary.populateStats()
         screenManager.show('2')
+        clearTimeout(totalTimeout)
       }, totalTimeMs)
     }
   }
