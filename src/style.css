@@ -11,6 +11,10 @@
     @apply px-6 py-3 bg-rose-600 font-bold rounded-sm uppercase;
   }
 
+  .btn-small {
+    @apply px-4 py-2 text-sm;
+  }
+
   #answer:focus {
     box-shadow: none !important;
   }

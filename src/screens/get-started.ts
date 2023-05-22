@@ -42,6 +42,8 @@ const calculateAnswer = (num1: number, num2: number, op: Operation) => {
 
 export function getStartedScreen(onSubmit: OnSubmit) {
   const form = document.getElementById("get-started") as HTMLFormElement
+  const allCheckboxes = document.querySelectorAll<HTMLInputElement>("#get-started input[type=checkbox]")
+  const selectAllButton = document.getElementById("select-all") as HTMLButtonElement
 
   form.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -95,5 +97,11 @@ export function getStartedScreen(onSubmit: OnSubmit) {
     }
 
     onSubmit(questions)
+  })
+
+  selectAllButton.addEventListener("click", () => {
+    allCheckboxes.forEach((checkbox) => {
+      checkbox.checked = true
+    })
   })
 }
